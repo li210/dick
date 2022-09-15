@@ -49,7 +49,7 @@ function preload ()
     this.load.image('ground', 'assets/platform.png');
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
-    this.load.spritesheet('dude', 'assets/dude.png',78,107);
+    this.load.spritesheet('dude', 'assets/duder.png', 72, 100);
 }
 
 function create ()
@@ -71,7 +71,7 @@ function create ()
 
     // The player and its settings
     player = this.game.add.sprite(100, 450, 'dude');
-    player.frame = 4;
+    player.frame = 2;
 
     //  Player physics properties. Give the little guy a slight bounce.
     player.setBounce(0.2);
@@ -94,8 +94,8 @@ function create ()
 
     });
  //  Our player animations, turning, walking left and walking right.
-    player.animations.add('left', [0, 1, 2, 3], 10, true);
-    player.animations.add('right', [5, 6, 7, 8], 10, true);
+    player.animations.add('left', [0, 1], 10, true);
+    player.animations.add('right', [3, 4], 10, true);
     
     bombs = this.physics.add.group();
 
@@ -135,8 +135,7 @@ function update ()
     else
     {
         player.setVelocityX(0);
-        player.animations.stop();
-        player.frame = 4;
+        player.frame = 2;
     }
 
     if (cursors.up.isDown && player.body.touching.down)
