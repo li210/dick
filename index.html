@@ -142,13 +142,21 @@ function update ()
         player.setVelocityY(-330);
     }
 }
-
+    
+function update (score)
+{
+    if (score = 40)
+    {
+         scoreText = this.add.text(16, 16, 'YOU HAVE COLLECTED 40 ASSES. WAIT FOR THE CONTACT', { fontSize: '72px', fill: '#f0f00f' });
+    }
+}
+    
 function collectStar (player, star)
 {
     star.disableBody(true, true);
 
     //  Add and update the score
-    score += 10;
+    score += 1;
     scoreText.setText('Asses: ' + score);
 
     if (stars.countActive(true) === 0)
