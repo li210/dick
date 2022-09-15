@@ -70,10 +70,10 @@ function create ()
     platforms.create(750, 240, 'ground');
 
     // The player and its settings
-    player = this.physics.add.sprite(107, 702, 'dude');
+    player = this.physics.add.sprite(72, 408, 'dude');
 
     //  Player physics properties. Give the little guy a slight bounce.
-    player.setBounce(0.2);
+    player.setBounce(0.05);
     player.setCollideWorldBounds(true);
 
 
@@ -90,7 +90,7 @@ function create ()
     stars.children.iterate(function (child) {
 
         //  Give each star a slightly different bounce
-        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+        child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.5));
 
     });
  //  Our player animations, turning, walking left and walking right.
