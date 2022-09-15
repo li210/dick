@@ -49,7 +49,7 @@ function preload ()
     this.load.image('ground', 'assets/platform.png');
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
-    this.load.spritesheet('dude', 'assets/duder.png', 72, 100);
+    this.load.image('dude', 'assets/duden.png');
 }
 
 function create ()
@@ -70,7 +70,7 @@ function create ()
     platforms.create(750, 220, 'ground');
 
     // The player and its settings
-    player = this.game.add.sprite(100, 450, 'dude');
+    player = this.add.image(100, 450, 'dude');
     player.frame = 2;
 
     //  Player physics properties. Give the little guy a slight bounce.
@@ -94,13 +94,13 @@ function create ()
 
     });
  //  Our player animations, turning, walking left and walking right.
-    player.animations.add('left', [0, 1], 10, true);
-    player.animations.add('right', [3, 4], 10, true);
+   //  player.animations.add('left', [0, 1], 10, true);
+   //  player.animations.add('right', [3, 4], 10, true);
     
     bombs = this.physics.add.group();
 
     //  The score
-    scoreText = this.add.text(16, 16, 'Asses: 0', { fontSize: '32px', fill: '#000' });
+    scoreText = this.add.text(16, 16, 'Asses: 0', { fontSize: '32px', fill: '#f0f00f' });
 
     //  Collide the player and the stars with the platforms
     this.physics.add.collider(player, platforms);
@@ -124,18 +124,18 @@ function update ()
     {
         player.setVelocityX(-111);
 
-        player.animations.play('left');
+   //      player.animations.play('left');
     }
     else if (cursors.right.isDown)
     {
         player.setVelocityX(111);
 
-        player.animations.play('right');
+ //        player.animations.play('right');
     }
     else
     {
         player.setVelocityX(0);
-        player.frame = 2;
+ //        player.frame = 2;
     }
 
     if (cursors.up.isDown && player.body.touching.down)
@@ -178,7 +178,7 @@ function hitBomb (player, bomb)
 
     player.setTint(0xff0000);
 
-    player.anims.play('turn');
+  //   player.anims.play('turn');
 
     gameOver = true;
 }
